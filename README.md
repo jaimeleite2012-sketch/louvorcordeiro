@@ -1,7 +1,3 @@
-# Ministério de Louvor @Cordeiro Igreja v1.8
+# Louvor Cordeiro v1.9
 
-Link público de teste configurado para:
-
-https://jaimeleite2012-sketch.github.io/MinisterioLouvorCordeiro-Teste/
-
-Publique estes arquivos em um novo repositório GitHub Pages chamado `MinisterioLouvorCordeiro-Teste`.
+Novo projeto: louvorcordeiro. Inclui identidade visual, foto de perfil, mural, configurações, backup, sincronização e auditoria Firebase.
