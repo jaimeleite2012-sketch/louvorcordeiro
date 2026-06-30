@@ -1,0 +1,11 @@
+{
+  "name": "Ministério de Louvor @Cordeiro Igreja - Teste",
+  "short_name": "Louvor Teste",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08042a",
+  "theme_color": "#04445f",
+  "description": "Escalas do Ministério de Louvor @Cordeiro Igreja",
+  "icons": []
+}
