@@ -18,7 +18,7 @@ body{margin:0;font-family:Arial,sans-serif;color:var(--txt);min-height:100vh;bac
 header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:rgba(0,0,0,.25);font-size:24px;overflow:hidden}.brand h1{font-size:20px;margin:0;font-weight:900;line-height:1;letter-spacing:.2px}.brand small{color:#a5b4fc}
 .card{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--line);box-shadow:0 18px 45px rgba(0,0,0,.28);border-radius:22px;padding:16px;margin:12px 0}
-h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}#calendarTitle{font-size:26px;font-weight:900;text-transform:capitalize;color:#fff;text-align:center;margin:0}p{color:var(--muted);margin:6px 0}
+h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}#calendarTitle{font-size:28px;font-weight:900;text-transform:capitalize;color:#fff;text-align:center;margin:0}p{color:var(--muted);margin:6px 0}
 label{display:block;color:#dbeafe;font-size:13px;font-weight:700;margin:11px 0 5px}
 input,select,textarea{width:100%;border:1px solid rgba(196,181,253,.32);border-radius:14px;background:rgba(3,6,23,.55);color:#fff;padding:12px;font-size:15px;outline:none}
 textarea{min-height:80px}
@@ -39,7 +39,7 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpi{text-align:center;border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(3,6,23,.28)}.kpi b{font-size:26px}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}.dow{text-align:center;color:#c4b5fd;font-size:12px;font-weight:900}
 .day{height:76px;border:1px solid var(--line);background:rgba(3,6,23,.28);border-radius:14px;padding:7px;text-align:left;overflow:hidden}.day strong{display:block;font-size:17px}.day.has{border-color:var(--cyan);background:rgba(56,189,248,.12)}.day.selected{outline:2px solid #a78bfa}.dots{margin-top:8px}.dot{width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;margin-right:4px}.count{font-size:10px;color:#bae6fd;margin-top:4px}
-.participant-row{border:1px solid var(--line);border-radius:16px;padding:10px;margin:8px 0;background:rgba(3,6,23,.22)}
+.participant-row{border:1px solid var(--line);border-radius:16px;padding:10px;margin:8px 0;background:rgba(3,6,23,.22)}.piegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.piebox{border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(3,6,23,.25)}.pie{width:160px;height:160px;border-radius:50%;margin:10px auto;background:conic-gradient(#38bdf8 0 100%);border:1px solid var(--line)}.legend{font-size:12px;color:#dbeafe}.legend div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(255,255,255,.08);padding:4px 0}.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}@media(max-width:760px){.piegrid{grid-template-columns:1fr}.pie{width:150px;height:150px}}
 .print-only{display:none}
 @media(max-width:600px){.row{grid-template-columns:1fr}.wrap{padding-left:10px;padding-right:10px}.day{height:58px;padding:5px}.day strong{font-size:14px}.kpis{grid-template-columns:1fr 1fr 1fr}.actions button{flex:1}}
 @media print{body{background:#fff;color:#111}.no-print,header,nav,.wrap>*:not(#printArea){display:none!important}.print-only{display:block!important}#printArea{display:block!important;color:#111}.print-card{font-family:Arial;padding:24px}.print-card h1{margin-bottom:4px}.print-line{border-bottom:1px solid #ddd;padding:8px 0;font-size:15px}}
@@ -62,7 +62,7 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 <header class="no-print"><div class="brand"><div class="logo"><img src="./assets/logo-cordeiro.webp" alt="Logo"></div><div><h1>Louvor Cordeiro</h1><small>Ministério de Louvor · Igreja Batista do Cordeiro</small></div></div><button class="secondary" id="logoutBtn">Sair</button></header>
 <main class="wrap">
 <section id="homePage" class="page">
-  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./assets/logo-cordeiro.webp" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 2.0</span></div>
+  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./assets/logo-cordeiro.webp" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 2.1</span></div>
   <div class="card">
     <div class="calendar-head"><button class="secondary" id="prevMonth">◀</button><h3 id="calendarTitle"></h3><button class="secondary" id="nextMonth">▶</button></div><div class="actions"><button class="secondary" id="clearSelectionBtn">Limpar seleção</button></div>
     <div class="calendar-grid" id="calendarGrid"></div>
@@ -89,19 +89,31 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 </section>
 
 
+
 <section id="dashboardPage" class="page hidden">
   <div class="card">
     <h2>Dashboard</h2>
-    <p>Análise simples do Ministério de Louvor.</p>
+    <p>Análise simples das escalas do Ministério de Louvor.</p>
+    <div class="row">
+      <div><label>Data inicial</label><input id="dashStart" type="date"></div>
+      <div><label>Data final</label><input id="dashEnd" type="date"></div>
+    </div>
+    <div class="actions">
+      <button class="secondary" id="dashApply">Atualizar dashboard</button>
+      <button class="secondary" id="dashClear">Limpar período</button>
+    </div>
   </div>
-  <div class="card"><h3>Pessoas que mais serviram</h3><div id="dashPeople" class="list"></div></div>
-  <div class="card"><h3>Distribuição por função</h3><div id="dashRoles" class="list"></div></div>
+  <div class="piegrid">
+    <div class="piebox"><h3>Participação por função</h3><div id="pieRoles" class="pie"></div><div id="legendRoles" class="legend"></div></div>
+    <div class="piebox"><h3>Participação por integrante</h3><div id="piePeople" class="pie"></div><div id="legendPeople" class="legend"></div></div>
+    <div class="piebox"><h3>Tipos de eventos</h3><div id="pieEvents" class="pie"></div><div id="legendEvents" class="legend"></div></div>
+  </div>
   <div class="card"><h3>Pessoas há mais tempo sem escala</h3><div id="dashMissing" class="list"></div></div>
 </section>
 
 <section id="configPage" class="page hidden">
   <div class="card"><h2>Configurações</h2><p>Usuário conectado:</p><p id="configUser"></p><button class="danger" id="logoutBtn2">Sair</button></div>
-  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 2.0</p><p><b>Última atualização:</b> Logo oficial aplicado, Dashboard adicionado e mês do calendário destacado.</p><p><b>Penúltima atualização:</b> Identidade Louvor Cordeiro, foto de perfil por pessoa e auditoria em nuvem.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
+  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 2.1</p><p><b>Última atualização:</b> Dashboard com três gráficos de pizza, link oficial louvorcordeiro e calendário destacado.</p><p><b>Penúltima atualização:</b> Logo oficial aplicado, Dashboard adicionado e mês do calendário destacado.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
   <div class="card"><h3>Backup</h3><div class="actions"><button class="secondary" id="exportBtn">Exportar backup JSON</button><label class="secondary" style="padding:11px 13px;border-radius:14px;cursor:pointer"><input id="importFile" type="file" accept=".json" style="display:none">Importar backup JSON</label></div><div id="backupMsg"></div></div>
 </section>
 
@@ -172,11 +184,17 @@ window.editDraftParticipant=id=>{const item=draftParticipants.find(p=>p.id===id)
 window.removeDraftParticipant=id=>{draftParticipants=draftParticipants.filter(p=>p.id!==id);renderDraftParticipants()};
 function renderDraftParticipants(){$("draftParticipants").innerHTML=draftParticipants.map(p=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(p.personName)}</div><span class="chip ok">${esc(p.role)}</span><span class="chip">${esc(p.ministry)}</span>${p.notes?`<div class="muted">${esc(p.notes)}</div>`:""}</div><div class="actions"><button class="secondary" onclick="editDraftParticipant('${p.id}')">Editar</button><button class="danger" onclick="removeDraftParticipant('${p.id}')">Remover</button></div></div></div>`).join("")||"<p>Nenhum participante adicionado.</p>"}
 $("saveScheduleBtn").onclick=async()=>{const event=events.find(e=>$("scheduleEvent").value===e.id);if(!event)return msg("scheduleMsg","Selecione o evento.","error");if(!draftParticipants.length)return msg("scheduleMsg","Adicione pelo menos uma pessoa.","error");const data={eventId:event.id,eventTitle:event.title,eventDate:event.date,eventTime:event.time,participants:draftParticipants,updatedBy:currentUser?.email||"",updatedAt:serverTimestamp()};const id=$("scheduleId").value;if(id){await updateDoc(doc(db,paths.schedules,id),data);await logAudit("Escala alterada",event.title)}else{await addDoc(collection(db,paths.schedules),{...data,createdAt:serverTimestamp()});await logAudit("Escala criada",event.title)}clearSchedule();msg("scheduleMsg","Escala salva com sucesso.")};
-$("clearScheduleBtn").onclick=clearSchedule;function clearSchedule(){$("scheduleId").value="";$("scheduleEvent").value="";draftParticipants=[];editingParticipantId=null;renderDraftParticipants();$("participantPerson").value="";$("participantRole").value="Dirigente";$("participantNotes").value=""}
+$("clearScheduleBtn").onclick=clearSchedule;function clearSchedule(){$("scheduleId").value="";$("scheduleEvent").value="";draftParticipants=[];editingParticipantId=null;if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();$("participantPerson").value="";$("participantRole").value="Dirigente";$("participantNotes").value=""}
 window.editScheduleById=id=>{const s=schedules.find(x=>x.id===id);if(s)editSchedule(s)}
 window.duplicateScheduleById=id=>{const s=schedules.find(x=>x.id===id);if(s)duplicateSchedule(s)}
-function editSchedule(s){$("scheduleId").value=s.id;$("scheduleEvent").value=scheduleEventId(s);draftParticipants=scheduleParts(s).map(p=>({...p,id:p.id||uid()}));renderDraftParticipants();showPage("schedulesPage");msg("scheduleMsg","Escala carregada para alteração. Salve para gravar na mesma escala.");scrollTo(0,0)}
-function duplicateSchedule(s){$("scheduleId").value="";$("scheduleEvent").value=scheduleEventId(s);draftParticipants=scheduleParts(s).map(p=>({...p,id:uid()}));renderDraftParticipants();showPage("schedulesPage");msg("scheduleMsg","Escala duplicada. Escolha outro evento/data se desejar e salve como nova escala.");scrollTo(0,0)}
+function editSchedule(s){$("scheduleId").value=s.id;$("scheduleEvent").value=scheduleEventId(s);draftParticipants=scheduleParts(s).map(p=>({...p,id:p.id||uid()}));if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();showPage("schedulesPage");msg("scheduleMsg","Escala carregada para alteração. Salve para gravar na mesma escala.");scrollTo(0,0)}
+function duplicateSchedule(s){$("scheduleId").value="";$("scheduleEvent").value=scheduleEventId(s);draftParticipants=scheduleParts(s).map(p=>({...p,id:uid()}));if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();showPage("schedulesPage");msg("scheduleMsg","Escala duplicada. Escolha outro evento/data se desejar e salve como nova escala.");scrollTo(0,0)}
 window.removeSchedule=async id=>{if(confirm("Excluir esta escala completa?"))await deleteDoc(doc(db,paths.schedules,id));await logAudit("Escala excluída",id)};
 function renderSchedules(){$("schedulesList").innerHTML=schedules.map(s=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(scheduleEventTitle(s))}</div><div class="muted">${esc(scheduleEventDate(s))} · ${esc(scheduleEventTime(s))} · ${scheduleParts(s).length} pessoa(s)</div></div><div class="actions"><button class="secondary" onclick='editScheduleById("${s.id}")'>Alterar</button><button class="secondary" onclick='duplicateScheduleById("${s.id}")'>Duplicar</button><button class="danger" onclick="removeSchedule('${s.id}')">Excluir</button></div></div><div style="margin-top:8px">${scheduleParts(s).map(p=>`<div class="muted">• ${esc(p.role)}: ${esc(p.personName)}</div>`).join("")}</div></div>`).join("")||"<p>Nenhuma escala salva.</p>";renderMural()}
 window.printSchedule=id=>{const s=schedules.find(x=>x.id===id);if(!s){alert("Escala não encontrada.");return}const e=events.find(x=>x.id===scheduleEventId(s));const parts=scheduleParts(s);$("printArea").innerHTML=`<div class="print-card"><h1>Igreja Batista do Cordeiro</h1><h2>${esc(scheduleEventTitle(s))}</h2><p>${esc(scheduleEventDate(s))} · ${esc(scheduleEventTime(s))} · ${esc(e?.location||"")}</p><hr><h2>Escala</h2>${parts.length?parts.map(p=>`<div class="print-line"><b>${esc(p.role)}</b>: ${esc(p.personName)}${p.notes?` <span class="muted">(${esc(p.notes)})</span>`:""}</div>`).join(""):"<p>Nenhum participante.</p>"}</div>`;setTimeout(()=>window.print(),100)}
@@ -215,33 +233,45 @@ if($("shareAppBtn")) $("shareAppBtn").onclick=()=>{
   window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank");
 };
 
+
+const PIE_COLORS=["#38bdf8","#a78bfa","#22c55e","#facc15","#fb7185","#60a5fa","#f97316","#34d399","#e879f9","#f472b6"];
+function filteredSchedulesForDash(){
+  const start=$("dashStart")?.value||"", end=$("dashEnd")?.value||"";
+  return schedules.filter(s=>{const d=scheduleEventDate(s)||""; if(start&&d<start)return false; if(end&&d>end)return false; return true;});
+}
+function makePie(pieId,legendId,data){
+  const pie=$(pieId),legend=$(legendId); if(!pie||!legend)return;
+  const entries=Object.entries(data).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const total=entries.reduce((s,[,v])=>s+v,0);
+  if(!total){pie.style.background="rgba(255,255,255,.08)";legend.innerHTML="<p>Sem dados suficientes.</p>";return}
+  let acc=0;
+  pie.style.background="conic-gradient("+entries.map(([label,value],i)=>{const start=acc/total*100;acc+=value;const end=acc/total*100;return `${PIE_COLORS[i%PIE_COLORS.length]} ${start}% ${end}%`;}).join(",")+")";
+  legend.innerHTML=entries.map(([label,value],i)=>{const pct=Math.round(value/total*100);return `<div><span><span class="sw" style="background:${PIE_COLORS[i%PIE_COLORS.length]}"></span>${esc(label)}</span><b>${value} · ${pct}%</b></div>`}).join("");
+}
 function renderDashboard(){
-  if(!$("dashPeople")) return;
-  const personCount={}, roleCount={}, lastServed={};
-  schedules.forEach(s=>{
-    const date=scheduleEventDate(s)||"";
+  if(!$("pieRoles")) return;
+  const roleCount={}, personCount={}, eventTypeCount={}, lastServed={};
+  filteredSchedulesForDash().forEach(s=>{
+    const d=scheduleEventDate(s)||"";
+    const ev=events.find(e=>e.id===scheduleEventId(s));
+    const eventType=ev?.type||"Evento";
+    eventTypeCount[eventType]=(eventTypeCount[eventType]||0)+1;
     scheduleParts(s).forEach(p=>{
-      if(!p.personId) return;
-      personCount[p.personId]=(personCount[p.personId]||0)+1;
-      roleCount[p.role]=(roleCount[p.role]||0)+1;
-      if(!lastServed[p.personId] || date>lastServed[p.personId]) lastServed[p.personId]=date;
+      roleCount[p.role||"Função"]=(roleCount[p.role||"Função"]||0)+1;
+      personCount[p.personName||"Pessoa"]=(personCount[p.personName||"Pessoa"]||0)+1;
+      if(p.personId&&(!lastServed[p.personId]||d>lastServed[p.personId]))lastServed[p.personId]=d;
     });
   });
-  const rank=Object.entries(personCount).map(([id,count])=>({person:people.find(p=>p.id===id),count})).filter(x=>x.person).sort((a,b)=>b.count-a.count);
-  $("dashPeople").innerHTML=rank.slice(0,10).map(x=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(x.person.name)}</div><div class="muted">${esc(x.person.role||x.person.ministry||"")}</div></div><span class="chip ok">${x.count} escala(s)</span></div></div>`).join("")||"<p>Sem dados suficientes.</p>";
-  const roles=Object.entries(roleCount).sort((a,b)=>b[1]-a[1]);
-  $("dashRoles").innerHTML=roles.map(([role,count])=>`<div class="item"><div class="topline"><div class="item-title">${esc(role)}</div><span class="chip">${count}</span></div></div>`).join("")||"<p>Sem dados suficientes.</p>";
-  const missing=people.map(p=>({person:p,last:lastServed[p.id]||"Nunca"})).sort((a,b)=>{
-    if(a.last==="Nunca"&&b.last!=="Nunca") return -1;
-    if(a.last!=="Nunca"&&b.last==="Nunca") return 1;
-    return String(a.last).localeCompare(String(b.last));
-  });
+  makePie("pieRoles","legendRoles",roleCount); makePie("piePeople","legendPeople",personCount); makePie("pieEvents","legendEvents",eventTypeCount);
+  const missing=people.map(p=>({person:p,last:lastServed[p.id]||"Nunca"})).sort((a,b)=>{if(a.last==="Nunca"&&b.last!=="Nunca")return -1;if(a.last!=="Nunca"&&b.last==="Nunca")return 1;return String(a.last).localeCompare(String(b.last));});
   $("dashMissing").innerHTML=missing.slice(0,12).map(x=>`<div class="item"><div class="item-title">${esc(x.person.name)}</div><div class="muted">Última escala: ${esc(x.last)}</div></div>`).join("")||"<p>Sem pessoas cadastradas.</p>";
 }
 
 function renderAudit(){$("auditList").innerHTML=audit.map(a=>`<div class="item"><div class="item-title">${esc(a.action)}</div><div class="muted">${esc(a.details||"")}</div><div class="muted">${esc(a.userEmail||"")} · ${esc(a.createdAtLocal||"")}</div></div>`).join("")||"<p>Nenhum registro ainda.</p>"}
 $("exportBtn").onclick=()=>{const data={people,events,schedules,exportedAt:new Date().toISOString(),appVersion:"1.6"};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="backup-escalas-ibc.json";a.click();URL.revokeObjectURL(a.href)};
 $("importFile").onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.people)for(const p of data.people)await addDoc(collection(db,paths.people),{...p,id:undefined,importedAt:serverTimestamp()});if(data.events)for(const ev of data.events)await addDoc(collection(db,paths.events),{...ev,id:undefined,importedAt:serverTimestamp()});if(data.schedules)for(const sc of data.schedules)await addDoc(collection(db,paths.schedules),{...sc,id:undefined,importedAt:serverTimestamp()});msg("backupMsg","Backup importado.")}catch(err){msg("backupMsg","Erro ao importar backup.","error")}}
+if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
 renderDraftParticipants();
 </script>
 </body>
