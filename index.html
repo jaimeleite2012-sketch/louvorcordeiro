@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Louvor Cordeiro</title>
+<title>Louvor Cordeiro v2.0</title>
 <meta name="theme-color" content="#07153e" />
 <link rel="manifest" href="./manifest.json" />
 <style>
@@ -18,7 +18,7 @@ body{margin:0;font-family:Arial,sans-serif;color:var(--txt);min-height:100vh;bac
 header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:rgba(0,0,0,.25);font-size:24px;overflow:hidden}.brand h1{font-size:20px;margin:0;font-weight:900;line-height:1;letter-spacing:.2px}.brand small{color:#a5b4fc}
 .card{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--line);box-shadow:0 18px 45px rgba(0,0,0,.28);border-radius:22px;padding:16px;margin:12px 0}
-h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}p{color:var(--muted);margin:6px 0}
+h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}#calendarTitle{font-size:26px;font-weight:900;text-transform:capitalize;color:#fff;text-align:center;margin:0}p{color:var(--muted);margin:6px 0}
 label{display:block;color:#dbeafe;font-size:13px;font-weight:700;margin:11px 0 5px}
 input,select,textarea{width:100%;border:1px solid rgba(196,181,253,.32);border-radius:14px;background:rgba(3,6,23,.55);color:#fff;padding:12px;font-size:15px;outline:none}
 textarea{min-height:80px}
@@ -30,7 +30,7 @@ button.ok{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.45)}
 .item{border:1px solid var(--line);background:rgba(3,6,23,.32);border-radius:16px;padding:12px}.item-title{font-weight:900;font-size:16px}.muted{color:var(--muted);font-size:13px}.hidden{display:none!important}
 .avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.12);border:1px solid var(--line)}.avatar-lg{width:70px;height:70px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.12);border:1px solid var(--line)}
 .chip{display:inline-flex;border-radius:999px;padding:5px 9px;margin:4px 4px 0 0;font-size:12px;border:1px solid var(--line);color:#dbeafe}.chip.ok{border-color:rgba(34,197,94,.45);color:#bbf7d0}
-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:860px;background:rgba(3,6,23,.96);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);z-index:10}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:860px;background:rgba(3,6,23,.96);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,1fr);z-index:10}
 nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12px;color:#cbd5e1}nav button.active{color:#fff;background:rgba(124,58,237,.22)}
 .login{min-height:100vh;display:grid;place-items:center;padding:18px}.login .card{width:100%;max-width:420px}
 .topline{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}
@@ -59,10 +59,10 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 </section>
 
 <section id="appScreen" class="hidden">
-<header class="no-print"><div class="brand"><div class="logo"><img src="./assets/logo-cordeiro.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.textContent='🐑'"></div><div><h1>Louvor Cordeiro</h1><small>Ministério de Louvor · Igreja Batista do Cordeiro</small></div></div><button class="secondary" id="logoutBtn">Sair</button></header>
+<header class="no-print"><div class="brand"><div class="logo"><img src="./assets/logo-cordeiro.webp" alt="Logo"></div><div><h1>Louvor Cordeiro</h1><small>Ministério de Louvor · Igreja Batista do Cordeiro</small></div></div><button class="secondary" id="logoutBtn">Sair</button></header>
 <main class="wrap">
 <section id="homePage" class="page">
-  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./assets/logo-cordeiro.webp" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 1.9</span></div>
+  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./assets/logo-cordeiro.webp" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 2.0</span></div>
   <div class="card">
     <div class="calendar-head"><button class="secondary" id="prevMonth">◀</button><h3 id="calendarTitle"></h3><button class="secondary" id="nextMonth">▶</button></div><div class="actions"><button class="secondary" id="clearSelectionBtn">Limpar seleção</button></div>
     <div class="calendar-grid" id="calendarGrid"></div>
@@ -88,15 +88,26 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
   <div class="card"><h3>Escalas salvas</h3><div id="schedulesList" class="list"></div></div>
 </section>
 
+
+<section id="dashboardPage" class="page hidden">
+  <div class="card">
+    <h2>Dashboard</h2>
+    <p>Análise simples do Ministério de Louvor.</p>
+  </div>
+  <div class="card"><h3>Pessoas que mais serviram</h3><div id="dashPeople" class="list"></div></div>
+  <div class="card"><h3>Distribuição por função</h3><div id="dashRoles" class="list"></div></div>
+  <div class="card"><h3>Pessoas há mais tempo sem escala</h3><div id="dashMissing" class="list"></div></div>
+</section>
+
 <section id="configPage" class="page hidden">
   <div class="card"><h2>Configurações</h2><p>Usuário conectado:</p><p id="configUser"></p><button class="danger" id="logoutBtn2">Sair</button></div>
-  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 1.9</p><p><b>Última atualização:</b> Identidade Louvor Cordeiro, logo oficial, foto de perfil por pessoa e auditoria em nuvem.</p><p><b>Penúltima atualização:</b> Link público de teste separado e compartilhamento do app corrigido.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
+  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 2.0</p><p><b>Última atualização:</b> Logo oficial aplicado, Dashboard adicionado e mês do calendário destacado.</p><p><b>Penúltima atualização:</b> Identidade Louvor Cordeiro, foto de perfil por pessoa e auditoria em nuvem.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
   <div class="card"><h3>Backup</h3><div class="actions"><button class="secondary" id="exportBtn">Exportar backup JSON</button><label class="secondary" style="padding:11px 13px;border-radius:14px;cursor:pointer"><input id="importFile" type="file" accept=".json" style="display:none">Importar backup JSON</label></div><div id="backupMsg"></div></div>
 </section>
 
 <section id="printArea" class="print-only"></section>
 </main>
-<nav class="no-print"><button data-page="homePage" class="active">🗓️<br>Mural</button><button data-page="peoplePage">👥<br>Pessoas</button><button data-page="eventsPage">📅<br>Agenda</button><button data-page="schedulesPage">✅<br>Escalas</button><button data-page="configPage">⚙️<br>Config</button></nav>
+<nav class="no-print"><button data-page="homePage" class="active">🗓️<br>Mural</button><button data-page="peoplePage">👥<br>Pessoas</button><button data-page="eventsPage">📅<br>Agenda</button><button data-page="schedulesPage">✅<br>Escalas</button><button data-page="dashboardPage">📊<br>Dash</button><button data-page="configPage">⚙️<br>Config</button></nav>
 </section>
 
 <script type="module">
@@ -123,9 +134,9 @@ const cache={people:{},events:{},schedules:{},audit:{}};let listeners=false;
 function upsert(type,docs){docs.forEach(x=>{if(x?.id)cache[type][x.id]=x})}
 function listen(path,type,refresh){onSnapshot(collection(db,path),snap=>{upsert(type,snap.docs.map(d=>({id:d.id,...d.data()})));refresh()},err=>console.warn("Falha lendo",path,err?.message||err))}
 function startListeners(){if(listeners)return;listeners=true;[paths.people,legacyPaths.people].forEach(p=>listen(p,"people",refreshPeople));[paths.events,legacyPaths.events].forEach(p=>listen(p,"events",refreshEvents));[paths.schedules,legacyPaths.schedules,legacyPaths.schedulesV2].forEach(p=>listen(p,"schedules",refreshSchedules));listen(paths.audit,"audit",refreshAudit)}
-function refreshPeople(){people=Object.values(cache.people).sort((a,b)=>(a.name||"").localeCompare(b.name||""));renderPeople();fillPeopleSelects();renderHome()}
-function refreshEvents(){events=Object.values(cache.events).sort((a,b)=>`${a.date||""} ${a.time||""}`.localeCompare(`${b.date||""} ${b.time||""}`));renderEvents();fillEventsSelect();renderHome()}
-function refreshSchedules(){schedules=Object.values(cache.schedules).sort((a,b)=>`${scheduleEventDate(a)} ${scheduleEventTime(a)}`.localeCompare(`${scheduleEventDate(b)} ${scheduleEventTime(b)}`));renderSchedules();renderHome()}
+function refreshPeople(){people=Object.values(cache.people).sort((a,b)=>(a.name||"").localeCompare(b.name||""));renderPeople();fillPeopleSelects();renderHome();renderDashboard()}
+function refreshEvents(){events=Object.values(cache.events).sort((a,b)=>`${a.date||""} ${a.time||""}`.localeCompare(`${b.date||""} ${b.time||""}`));renderEvents();fillEventsSelect();renderHome();renderDashboard()}
+function refreshSchedules(){schedules=Object.values(cache.schedules).sort((a,b)=>`${scheduleEventDate(a)} ${scheduleEventTime(a)}`.localeCompare(`${scheduleEventDate(b)} ${scheduleEventTime(b)}`));renderSchedules();renderHome();renderDashboard()}
 function refreshAudit(){audit=Object.values(cache.audit).sort((a,b)=>(b.createdAtLocal||"").localeCompare(a.createdAtLocal||"")).slice(0,20);renderAudit()}
 async function logAudit(action,details){try{await addDoc(collection(db,paths.audit),{action,details,userEmail:currentUser?.email||"",createdAt:serverTimestamp(),createdAtLocal:new Date().toLocaleString("pt-BR")})}catch(e){console.warn("audit",e)}}
 function scheduleParts(s){if(Array.isArray(s.participants)&&s.participants.length)return s.participants;if(s.personId||s.personName||s.role){const p=people.find(x=>x.id===s.personId);return[{id:s.id+"-p",personId:s.personId||"",personName:s.personName||p?.name||"Pessoa não encontrada",ministry:p?.ministry||"",role:s.role||"Função",notes:s.notes||""}]}return[]}
@@ -136,7 +147,7 @@ function scheduleEventTime(s){const e=events.find(x=>x.id===scheduleEventId(s));
 function ymd(d){return d.toISOString().slice(0,10)}function localYmd(y,m,d){return`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`}
 
 function renderHome(){renderCalendar();renderMural();}
-function renderCalendar(){const y=currentMonth.getFullYear(),m=currentMonth.getMonth();$("calendarTitle").textContent=currentMonth.toLocaleDateString("pt-BR",{month:"long",year:"numeric"});const first=new Date(y,m,1),last=new Date(y,m+1,0);let html=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"].map(d=>`<div class="dow">${d}</div>`).join("");for(let i=0;i<first.getDay();i++)html+="<div></div>";for(let d=1;d<=last.getDate();d++){const date=localYmd(y,m,d),evs=events.filter(e=>e.date===date);html+=`<button class="day ${evs.length?"has":""} ${selectedDate===date?"selected":""}" onclick="selectDate('${date}')"><strong>${d}</strong>${evs.length?`<div class="dots">${evs.slice(0,4).map(()=>`<span class="dot"></span>`).join("")}</div><div class="count">${evs.length} evento(s)</div>`:""}</button>`}$("calendarGrid").innerHTML=html}
+function renderCalendar(){const y=currentMonth.getFullYear(),m=currentMonth.getMonth();const monthText=currentMonth.toLocaleDateString("pt-BR",{month:"long",year:"numeric"});$("calendarTitle").textContent=monthText.charAt(0).toUpperCase()+monthText.slice(1);const first=new Date(y,m,1),last=new Date(y,m+1,0);let html=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"].map(d=>`<div class="dow">${d}</div>`).join("");for(let i=0;i<first.getDay();i++)html+="<div></div>";for(let d=1;d<=last.getDate();d++){const date=localYmd(y,m,d),evs=events.filter(e=>e.date===date);html+=`<button class="day ${evs.length?"has":""} ${selectedDate===date?"selected":""}" onclick="selectDate('${date}')"><strong>${d}</strong>${evs.length?`<div class="dots">${evs.slice(0,4).map(()=>`<span class="dot"></span>`).join("")}</div><div class="count">${evs.length} evento(s)</div>`:""}</button>`}$("calendarGrid").innerHTML=html}
 window.selectDate=date=>{selectedDate=date;renderCalendar();renderMural();renderPeople();renderEvents()};
 $("prevMonth").onclick=()=>{currentMonth=new Date(currentMonth.getFullYear(),currentMonth.getMonth()-1,1);renderCalendar()};$("nextMonth").onclick=()=>{currentMonth=new Date(currentMonth.getFullYear(),currentMonth.getMonth()+1,1);renderCalendar()};$("clearSelectionBtn").onclick=()=>{selectedDate=null;renderCalendar();renderMural();renderPeople();renderEvents()};
 function renderMural(){if(!selectedDate){$("selectedDayTitle").textContent="Selecione uma data";$("muralBox").innerHTML="<p>Nenhum dia selecionado.</p>";return}$("selectedDayTitle").textContent=new Date(selectedDate+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long",year:"numeric"});const dayEvents=events.filter(e=>e.date===selectedDate);if(!dayEvents.length){$("muralBox").innerHTML="<p>Nenhum evento nesta data.</p>";return}$("muralBox").innerHTML=dayEvents.map(e=>{const sched=schedules.filter(s=>scheduleEventId(s)===e.id||(scheduleEventDate(s)===e.date&&scheduleEventTitle(s)===e.title));return`<div class="item"><div class="item-title">${esc(e.title)}</div><div class="muted">${esc(e.time)} · ${esc(e.location||"")}</div>${sched.length?sched.map(s=>`<div style="margin-top:8px">${scheduleParts(s).map(p=>`<div class="muted">• <b>${esc(p.role)}</b>: ${esc(p.personName)}</div>`).join("")}<div class="actions"><button class="secondary" onclick="printSchedule('${s.id}')">🖨️ Imprimir</button><button class="secondary" onclick="shareSchedule('${s.id}')">📲 WhatsApp</button><button class="secondary" onclick='editScheduleById("${s.id}")'>✏️ Alterar</button><button class="secondary" onclick='duplicateScheduleById("${s.id}")'>📄 Duplicar</button><button class="danger" onclick="removeSchedule('${s.id}')">🗑️ Excluir</button></div></div>`).join(""):`<p>Nenhuma escala salva para este evento.</p>`}</div>`}).join("")}
@@ -203,6 +214,31 @@ if($("shareAppBtn")) $("shareAppBtn").onclick=()=>{
   const text=`Louvor Cordeiro\nAcesse o app de escalas:\n${location.href}`;
   window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank");
 };
+
+function renderDashboard(){
+  if(!$("dashPeople")) return;
+  const personCount={}, roleCount={}, lastServed={};
+  schedules.forEach(s=>{
+    const date=scheduleEventDate(s)||"";
+    scheduleParts(s).forEach(p=>{
+      if(!p.personId) return;
+      personCount[p.personId]=(personCount[p.personId]||0)+1;
+      roleCount[p.role]=(roleCount[p.role]||0)+1;
+      if(!lastServed[p.personId] || date>lastServed[p.personId]) lastServed[p.personId]=date;
+    });
+  });
+  const rank=Object.entries(personCount).map(([id,count])=>({person:people.find(p=>p.id===id),count})).filter(x=>x.person).sort((a,b)=>b.count-a.count);
+  $("dashPeople").innerHTML=rank.slice(0,10).map(x=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(x.person.name)}</div><div class="muted">${esc(x.person.role||x.person.ministry||"")}</div></div><span class="chip ok">${x.count} escala(s)</span></div></div>`).join("")||"<p>Sem dados suficientes.</p>";
+  const roles=Object.entries(roleCount).sort((a,b)=>b[1]-a[1]);
+  $("dashRoles").innerHTML=roles.map(([role,count])=>`<div class="item"><div class="topline"><div class="item-title">${esc(role)}</div><span class="chip">${count}</span></div></div>`).join("")||"<p>Sem dados suficientes.</p>";
+  const missing=people.map(p=>({person:p,last:lastServed[p.id]||"Nunca"})).sort((a,b)=>{
+    if(a.last==="Nunca"&&b.last!=="Nunca") return -1;
+    if(a.last!=="Nunca"&&b.last==="Nunca") return 1;
+    return String(a.last).localeCompare(String(b.last));
+  });
+  $("dashMissing").innerHTML=missing.slice(0,12).map(x=>`<div class="item"><div class="item-title">${esc(x.person.name)}</div><div class="muted">Última escala: ${esc(x.last)}</div></div>`).join("")||"<p>Sem pessoas cadastradas.</p>";
+}
+
 function renderAudit(){$("auditList").innerHTML=audit.map(a=>`<div class="item"><div class="item-title">${esc(a.action)}</div><div class="muted">${esc(a.details||"")}</div><div class="muted">${esc(a.userEmail||"")} · ${esc(a.createdAtLocal||"")}</div></div>`).join("")||"<p>Nenhum registro ainda.</p>"}
 $("exportBtn").onclick=()=>{const data={people,events,schedules,exportedAt:new Date().toISOString(),appVersion:"1.6"};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="backup-escalas-ibc.json";a.click();URL.revokeObjectURL(a.href)};
 $("importFile").onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.people)for(const p of data.people)await addDoc(collection(db,paths.people),{...p,id:undefined,importedAt:serverTimestamp()});if(data.events)for(const ev of data.events)await addDoc(collection(db,paths.events),{...ev,id:undefined,importedAt:serverTimestamp()});if(data.schedules)for(const sc of data.schedules)await addDoc(collection(db,paths.schedules),{...sc,id:undefined,importedAt:serverTimestamp()});msg("backupMsg","Backup importado.")}catch(err){msg("backupMsg","Erro ao importar backup.","error")}}

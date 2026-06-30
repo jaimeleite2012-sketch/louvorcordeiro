@@ -1,3 +1,3 @@
-# Louvor Cordeiro v1.9
+# Louvor Cordeiro v2.0
 
-Novo projeto: louvorcordeiro. Inclui identidade visual, foto de perfil, mural, configurações, backup, sincronização e auditoria Firebase.
+Logo oficial aplicado, Dashboard adicionado e calendário com mês destacado.
