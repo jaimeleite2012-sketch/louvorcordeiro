@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Louvor Cordeiro v2.5</title>
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Louvor Cordeiro" />
+<meta property="og:description" content="Aplicativo oficial do Ministério de Louvor da Igreja Batista do Cordeiro." />
+<meta property="og:url" content="https://jaimeleite2012-sketch.github.io/louvorcordeiro/" />
+<meta property="og:image" content="https://jaimeleite2012-sketch.github.io/louvorcordeiro/og-image.png?v=25" />
+<meta property="og:image:secure_url" content="https://jaimeleite2012-sketch.github.io/louvorcordeiro/og-image.png?v=25" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Louvor Cordeiro" />
+<meta name="twitter:description" content="Aplicativo oficial do Ministério de Louvor da Igreja Batista do Cordeiro." />
+<meta name="twitter:image" content="https://jaimeleite2012-sketch.github.io/louvorcordeiro/og-image.png?v=25" />
+
+<meta name="theme-color" content="#07153e" />
+<link rel="manifest" href="./manifest.json" />
+<style>
+:root{
+  --bg:#030617;--card:rgba(10,22,61,.86);--card2:rgba(45,18,89,.68);
+  --line:rgba(196,181,253,.26);--txt:#fff;--muted:#cbd5e1;--primary:#7c3aed;
+  --ok:#22c55e;--danger:#ef4444;--cyan:#38bdf8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:var(--txt);min-height:100vh;position:relative;background:radial-gradient(circle at 12% 0%,rgba(37,99,235,.42),transparent 36%),radial-gradient(circle at 92% 0%,rgba(168,85,247,.38),transparent 36%),linear-gradient(180deg,#08042a 0%,#07153e 45%,#030617 100%)}body::before{content:"";position:fixed;inset:0;background:url('./fundo-louvor.png?v=25') center/cover no-repeat;opacity:.22;pointer-events:none;z-index:0}body>*{position:relative;z-index:1}body::after{content:"";position:fixed;inset:0;background:rgba(255,255,255,.035);pointer-events:none;z-index:0}
+.wrap{max-width:860px;margin:0 auto;padding:14px 14px 88px}
+header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:rgba(0,0,0,.25);font-size:24px;overflow:hidden}.brand h1{font-size:20px;margin:0;font-weight:900;line-height:1;letter-spacing:.2px}.brand small{color:#a5b4fc}
+.card{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--line);box-shadow:0 18px 45px rgba(0,0,0,.28);border-radius:22px;padding:16px;margin:12px 0}
+h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}#calendarTitle{font-size:30px;font-weight:900;text-transform:capitalize;color:#fff;text-align:center;margin:0;text-shadow:0 2px 10px rgba(0,0,0,.45)}p{color:var(--muted);margin:6px 0}
+label{display:block;color:#dbeafe;font-size:13px;font-weight:700;margin:11px 0 5px}
+input,select,textarea{width:100%;border:1px solid rgba(196,181,253,.32);border-radius:14px;background:rgba(3,6,23,.55);color:#fff;padding:12px;font-size:15px;outline:none}
+textarea{min-height:80px}
+button{border:0;border-radius:14px;padding:11px 13px;color:#fff;font-weight:800;font-size:14px;cursor:pointer;background:linear-gradient(135deg,#2563eb,#9333ea)}
+button.secondary{background:rgba(148,163,184,.18);border:1px solid var(--line)}
+button.danger{background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.45)}
+button.ok{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.45)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.item{border:1px solid var(--line);background:rgba(3,6,23,.32);border-radius:16px;padding:12px}.item-title{font-weight:900;font-size:16px}.muted{color:var(--muted);font-size:13px}.hidden{display:none!important}
+.avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.12);border:1px solid var(--line)}.avatar-lg{width:70px;height:70px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.12);border:1px solid var(--line)}
+.chip{display:inline-flex;border-radius:999px;padding:5px 9px;margin:4px 4px 0 0;font-size:12px;border:1px solid var(--line);color:#dbeafe}.chip.ok{border-color:rgba(34,197,94,.45);color:#bbf7d0}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:860px;background:rgba(3,6,23,.96);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,1fr);z-index:10}
+nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12px;color:#cbd5e1}nav button.active{color:#fff;background:rgba(124,58,237,.22)}
+.login{min-height:100vh;display:grid;place-items:center;padding:18px}.login .card{width:100%;max-width:420px}
+.topline{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}
+.error{background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.45);padding:10px;border-radius:14px;color:#fecaca;margin:8px 0}
+.success{background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.45);padding:10px;border-radius:14px;color:#bbf7d0;margin:8px 0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpi{text-align:center;border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(3,6,23,.28)}.kpi b{font-size:26px}
+.calendar-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}.dow{text-align:center;color:#c4b5fd;font-size:12px;font-weight:900}
+.day{height:76px;border:1px solid var(--line);background:rgba(3,6,23,.28);border-radius:14px;padding:7px;text-align:left;overflow:hidden}.day strong{display:block;font-size:17px}.day.has{border-color:var(--cyan);background:rgba(56,189,248,.12)}.day.selected{outline:2px solid #a78bfa}.dots{margin-top:8px}.dot{width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;margin-right:4px}.count{font-size:10px;color:#bae6fd;margin-top:4px}
+.participant-row{border:1px solid var(--line);border-radius:16px;padding:10px;margin:8px 0;background:rgba(3,6,23,.22)}.piegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.piebox{border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(3,6,23,.25)}.pie{width:160px;height:160px;border-radius:50%;margin:10px auto;background:conic-gradient(#38bdf8 0 100%);border:1px solid var(--line)}.legend{font-size:12px;color:#dbeafe}.legend div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(255,255,255,.08);padding:4px 0}.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}@media(max-width:760px){.piegrid{grid-template-columns:1fr}.pie{width:150px;height:150px}}
+.print-only{display:none}
+@media(max-width:600px){.row{grid-template-columns:1fr}.wrap{padding-left:10px;padding-right:10px}.day{height:58px;padding:5px}.day strong{font-size:14px}.kpis{grid-template-columns:1fr 1fr 1fr}.actions button{flex:1}}
+@media print{body{background:#fff;color:#111}.no-print,header,nav,.wrap>*:not(#printArea){display:none!important}.print-only{display:block!important}#printArea{display:block!important;color:#111}.print-card{font-family:Arial;padding:24px}.print-card h1{margin-bottom:4px}.print-line{border-bottom:1px solid #ddd;padding:8px 0;font-size:15px}}
+</style>
+</head>
+<body>
+<section id="loginScreen" class="login">
+  <div class="card">
+    <div style="text-align:center"><div class="logo" style="margin:0 auto 12px">🐑</div><h2>Ministério de Louvor</h2><p>@Cordeiro Igreja</p></div>
+    <div id="loginMsg"></div>
+    <form id="loginForm">
+      <label>E-mail</label><input id="loginEmail" type="email" value="jaimeleite2012@gmail.com"/>
+      <label>Senha</label><input id="loginPassword" type="password"/>
+      <div class="actions"><button type="submit" id="loginBtn">Entrar</button><button type="button" class="secondary" id="resetBtn">Recuperar senha</button></div>
+    </form>
+  </div>
+</section>
+
+<section id="appScreen" class="hidden">
+<header class="no-print"><div class="brand"><div class="logo"><img src="./logo-cordeiro.webp?v=25" alt="Logo Louvor Cordeiro"></div><div><h1>Louvor Cordeiro</h1><small>Ministério de Louvor · Igreja Batista do Cordeiro</small></div></div><button class="secondary" id="logoutBtn">Sair</button></header>
+<main class="wrap">
+<section id="homePage" class="page">
+  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./logo-cordeiro.webp?v=25" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 2.5</span></div>
+  <div class="card">
+    <div class="calendar-head"><button class="secondary" id="prevMonth">◀</button><h3 id="calendarTitle"></h3><button class="secondary" id="nextMonth">▶</button></div><div class="actions"><button class="secondary" id="clearSelectionBtn">Limpar seleção</button></div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+  <div class="card"><div class="topline"><h3 id="selectedDayTitle">Selecione uma data</h3><button class="secondary" id="quickEventBtn">Criar evento nesta data</button></div><div id="muralBox" class="list"><p>Nenhum dia selecionado.</p></div></div>
+</section>
+
+<section id="peoplePage" class="page hidden">
+  <div class="card"><h2>Pessoas</h2><div id="personMsg"></div><form id="personForm"><input type="hidden" id="personId"/><label>Foto de perfil</label><input id="personPhoto" type="file" accept="image/*"/><div id="photoPreview"></div><label>Nome</label><input id="personName"/><div class="row"><div><label>Telefone</label><input id="personPhone"/></div><div><label>WhatsApp</label><input id="personWhatsapp"/></div></div><div class="row"><div><label>Ministério</label><input id="personMinistry" value="Louvor"/></div><div><label>Função principal</label><input id="personRole"/></div></div><label>Status</label><select id="personStatus"><option>Ativo</option><option>Inativo</option></select><div class="actions"><button type="submit">Salvar pessoa</button><button type="button" class="secondary" id="clearPersonBtn">Limpar</button></div></form></div>
+  <div class="card"><div class="topline"><h3>Lista</h3><span class="muted" id="peopleCount"></span></div><label>Pesquisar</label><input id="peopleSearch"/><div id="peopleList" class="list"></div></div>
+</section>
+
+<section id="eventsPage" class="page hidden">
+  <div class="card"><h2>Agenda</h2><div id="eventMsg"></div><form id="eventForm"><input type="hidden" id="eventId"/><label>Evento fixo</label>
+<select id="eventFixedType">
+<option>Culto de Adoração</option>
+<option>Culto de Oração</option>
+<option>EBD Escola Bíblica Dominical</option>
+<option>Integra Cordeiro</option>
+<option>Conferências de Missões</option>
+<option>Conferências de Aniversário</option>
+<option>Oanse - Evangelismo Infantil</option>
+<option>Outros</option>
+</select>
+<div id="eventOtherWrap" class="hidden"><label>Especificar evento</label><input id="eventTitle" placeholder="Informe o nome do evento"/></div><div class="row"><div><label>Tipo</label><select id="eventType"><option>Culto</option><option>Ensaio</option><option>Reunião</option><option>Evento</option></select></div><div><label>Responsável</label><input id="eventResponsible"/></div></div><div class="row"><div><label>Data</label><input id="eventDate" type="date"/></div><div><label>Hora</label><input id="eventTime" type="time" value="19:00"/></div></div><label>Local</label><input id="eventLocation" value="Igreja Batista do Cordeiro"/><div class="actions"><button type="submit">Salvar evento</button><button type="button" class="secondary" id="clearEventBtn">Limpar</button></div></form></div>
+  <div class="card"><h3>Eventos cadastrados</h3><div id="eventsList" class="list"></div></div>
+</section>
+
+<section id="schedulesPage" class="page hidden">
+  <div class="card"><h2>Escalas</h2><p>Monte a escala completa do culto e salve uma única vez.</p><div id="scheduleMsg"></div><input type="hidden" id="scheduleId"/><label>Evento / Culto</label><select id="scheduleEvent"></select>
+    <div class="participant-row"><h3>Adicionar participante</h3><div class="row"><div><label>Pessoa</label><select id="participantPerson"></select></div><div><label>Função</label><select id="participantRole"><option>Dirigente</option><option>Pregador</option><option>Vocal</option><option>Violão</option><option>Teclado</option><option>Baixo</option><option>Bateria</option><option>Mesa de Som</option><option>Projeção</option><option>Transmissão</option><option>Recepção</option><option>Intercessão</option><option>Infantil</option><option>OANSE</option><option>Outro</option></select></div></div><label>Observação</label><input id="participantNotes"/><div class="actions"><button type="button" id="addParticipantBtn">Adicionar participante</button></div></div>
+    <h3>Equipe desta escala</h3><div id="draftParticipants" class="list"></div><div class="actions"><button id="saveScheduleBtn">Salvar escala completa</button><button class="secondary" id="clearScheduleBtn">Limpar</button></div>
+  </div>
+  <div class="card"><h3>Escalas salvas</h3><div id="schedulesList" class="list"></div></div>
+</section>
+
+
+
+<section id="dashboardPage" class="page hidden">
+  <div class="card">
+    <h2>Dashboard</h2>
+    <p>Análise simples das escalas do Ministério de Louvor.</p>
+    <div class="row">
+      <div><label>Data inicial</label><input id="dashStart" type="date"></div>
+      <div><label>Data final</label><input id="dashEnd" type="date"></div>
+    </div>
+    <div class="actions">
+      <button class="secondary" id="dashApply">Atualizar dashboard</button>
+      <button class="secondary" id="dashClear">Limpar período</button>
+    </div>
+  </div>
+  <div class="piegrid">
+    <div class="piebox"><h3>Participação por função</h3><div id="pieRoles" class="pie"></div><div id="legendRoles" class="legend"></div></div>
+    <div class="piebox"><h3>Participação por integrante</h3><div id="piePeople" class="pie"></div><div id="legendPeople" class="legend"></div></div>
+    <div class="piebox"><h3>Tipos de eventos</h3><div id="pieEvents" class="pie"></div><div id="legendEvents" class="legend"></div></div>
+  </div>
+  <div class="card"><h3>Pessoas há mais tempo sem escala</h3><div id="dashMissing" class="list"></div></div>
+</section>
+
+<section id="configPage" class="page hidden">
+  <div class="card"><h2>Configurações</h2><p>Usuário conectado:</p><p id="configUser"></p><button class="danger" id="logoutBtn2">Sair</button></div>
+  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 2.5</p><p><b>Última atualização:</b> Eventos fixos, botão criar evento na data, correção das ações da escala e fundo mais visível no celular.</p><p><b>Penúltima atualização:</b> Capa de compartilhamento configurada para WhatsApp.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
+  <div class="card"><h3>Backup</h3><div class="actions"><button class="secondary" id="exportBtn">Exportar backup JSON</button><label class="secondary" style="padding:11px 13px;border-radius:14px;cursor:pointer"><input id="importFile" type="file" accept=".json" style="display:none">Importar backup JSON</label></div><div id="backupMsg"></div></div>
+</section>
+
+<section id="printArea" class="print-only"></section>
+</main>
+<nav class="no-print"><button data-page="homePage" class="active">🗓️<br>Mural</button><button data-page="peoplePage">👥<br>Pessoas</button><button data-page="eventsPage">📅<br>Agenda</button><button data-page="schedulesPage">✅<br>Escalas</button><button data-page="dashboardPage">📊<br>Dash</button><button data-page="configPage">⚙️<br>Config</button></nav>
+</section>
+
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import{getAuth,setPersistence,browserLocalPersistence,onAuthStateChanged,signInWithEmailAndPassword,sendPasswordResetEmail,signOut}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import{getFirestore,collection,doc,addDoc,updateDoc,deleteDoc,onSnapshot,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+const firebaseConfig={apiKey:"AIzaSyCIb6A3wbmhEMY_g1MpGmXax_7dSQH9thw",authDomain:"escalas-ibc.firebaseapp.com",projectId:"escalas-ibc",storageBucket:"escalas-ibc.firebasestorage.app",messagingSenderId:"799738915159",appId:"1:799738915159:web:3f656c00e8344954c73612",measurementId:"G-B5HHRZL42W"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);await setPersistence(auth,browserLocalPersistence);
+const paths={people:"churches/ibc/people",events:"churches/ibc/events",schedules:"churches/ibc/schedules",audit:"churches/ibc/audit"};
+const legacyPaths={people:"people",events:"events",schedules:"schedules",schedulesV2:"churches/ibc/schedulesV2"};
+let people=[],events=[],schedules=[],audit=[],draftParticipants=[],editingParticipantId=null,currentMonth=new Date(),selectedDate=null,currentUser=null,currentPhoto="";
+const $=id=>document.getElementById(id),uid=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),msg=(id,text,type="success")=>$(id).innerHTML=text?`<div class="${type}">${text}</div>`:"";
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));if(id==="eventsPage"&&selectedDate&&!$("eventId").value){$("eventDate").value=selectedDate}renderPeople();renderEvents();}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+function authMessage(e){return({"auth/invalid-credential":"E-mail ou senha inválidos.","auth/user-not-found":"Usuário não encontrado.","auth/wrong-password":"Senha incorreta.","auth/invalid-email":"E-mail inválido."})[e?.code]||"Erro: "+(e?.code||e?.message||e)}
+$("loginForm").onsubmit=async e=>{e.preventDefault();$("loginBtn").disabled=true;try{await signInWithEmailAndPassword(auth,$("loginEmail").value.trim(),$("loginPassword").value)}catch(err){msg("loginMsg",authMessage(err),"error")}finally{$("loginBtn").disabled=false}};
+$("resetBtn").onclick=async()=>{try{await sendPasswordResetEmail(auth,$("loginEmail").value.trim());msg("loginMsg","E-mail enviado.")}catch(e){msg("loginMsg",authMessage(e),"error")}};
+$("logoutBtn").onclick=() => signOut(auth);$("logoutBtn2").onclick=() => signOut(auth);
+onAuthStateChanged(auth,u=>{currentUser=u;if(u){$("loginScreen").classList.add("hidden");$("appScreen").classList.remove("hidden");$("configUser").textContent=u.email;startListeners()}else{$("loginScreen").classList.remove("hidden");$("appScreen").classList.add("hidden")}});
+
+const cache={people:{},events:{},schedules:{},audit:{}};let listeners=false;
+function upsert(type,docs){docs.forEach(x=>{if(x?.id)cache[type][x.id]=x})}
+function listen(path,type,refresh){onSnapshot(collection(db,path),snap=>{upsert(type,snap.docs.map(d=>({id:d.id,...d.data()})));refresh()},err=>console.warn("Falha lendo",path,err?.message||err))}
+function startListeners(){if(listeners)return;listeners=true;[paths.people,legacyPaths.people].forEach(p=>listen(p,"people",refreshPeople));[paths.events,legacyPaths.events].forEach(p=>listen(p,"events",refreshEvents));[paths.schedules,legacyPaths.schedules,legacyPaths.schedulesV2].forEach(p=>listen(p,"schedules",refreshSchedules));listen(paths.audit,"audit",refreshAudit)}
+function refreshPeople(){people=Object.values(cache.people).sort((a,b)=>(a.name||"").localeCompare(b.name||""));renderPeople();fillPeopleSelects();renderHome();renderDashboard()}
+function refreshEvents(){events=Object.values(cache.events).sort((a,b)=>`${a.date||""} ${a.time||""}`.localeCompare(`${b.date||""} ${b.time||""}`));renderEvents();fillEventsSelect();renderHome();renderDashboard()}
+function refreshSchedules(){schedules=Object.values(cache.schedules).sort((a,b)=>`${scheduleEventDate(a)} ${scheduleEventTime(a)}`.localeCompare(`${scheduleEventDate(b)} ${scheduleEventTime(b)}`));renderSchedules();renderHome();renderDashboard()}
+function refreshAudit(){audit=Object.values(cache.audit).sort((a,b)=>(b.createdAtLocal||"").localeCompare(a.createdAtLocal||"")).slice(0,20);renderAudit()}
+async function logAudit(action,details){try{await addDoc(collection(db,paths.audit),{action,details,userEmail:currentUser?.email||"",createdAt:serverTimestamp(),createdAtLocal:new Date().toLocaleString("pt-BR")})}catch(e){console.warn("audit",e)}}
+function scheduleParts(s){if(Array.isArray(s.participants)&&s.participants.length)return s.participants;if(s.personId||s.personName||s.role){const p=people.find(x=>x.id===s.personId);return[{id:s.id+"-p",personId:s.personId||"",personName:s.personName||p?.name||"Pessoa não encontrada",ministry:p?.ministry||"",role:s.role||"Função",notes:s.notes||""}]}return[]}
+function scheduleEventId(s){return s.eventId||s.event?.id||""}
+function scheduleEventTitle(s){const e=events.find(x=>x.id===scheduleEventId(s));return s.eventTitle||e?.title||"Evento"}
+function scheduleEventDate(s){const e=events.find(x=>x.id===scheduleEventId(s));return s.eventDate||s.date||e?.date||""}
+function scheduleEventTime(s){const e=events.find(x=>x.id===scheduleEventId(s));return s.eventTime||s.time||e?.time||""}
+function ymd(d){return d.toISOString().slice(0,10)}function localYmd(y,m,d){return`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`}
+
+function renderHome(){renderCalendar();renderMural();}
+function renderCalendar(){const y=currentMonth.getFullYear(),m=currentMonth.getMonth();const monthText=currentMonth.toLocaleDateString("pt-BR",{month:"long",year:"numeric"});$("calendarTitle").textContent=monthText.charAt(0).toUpperCase()+monthText.slice(1);const first=new Date(y,m,1),last=new Date(y,m+1,0);let html=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"].map(d=>`<div class="dow">${d}</div>`).join("");for(let i=0;i<first.getDay();i++)html+="<div></div>";for(let d=1;d<=last.getDate();d++){const date=localYmd(y,m,d),evs=events.filter(e=>e.date===date);html+=`<button class="day ${evs.length?"has":""} ${selectedDate===date?"selected":""}" onclick="selectDate('${date}')"><strong>${d}</strong>${evs.length?`<div class="dots">${evs.slice(0,4).map(()=>`<span class="dot"></span>`).join("")}</div><div class="count">${evs.length} evento(s)</div>`:""}</button>`}$("calendarGrid").innerHTML=html}
+window.selectDate=date=>{selectedDate=date;renderCalendar();renderMural();renderPeople();renderEvents()};
+$("prevMonth").onclick=()=>{currentMonth=new Date(currentMonth.getFullYear(),currentMonth.getMonth()-1,1);renderCalendar()};$("nextMonth").onclick=()=>{currentMonth=new Date(currentMonth.getFullYear(),currentMonth.getMonth()+1,1);renderCalendar()};$("clearSelectionBtn").onclick=()=>{selectedDate=null;renderCalendar();renderMural();renderPeople();renderEvents()};$("quickEventBtn").onclick=()=>{if(!selectedDate){alert("Selecione uma data no calendário.");return}showPage("eventsPage");$("eventDate").value=selectedDate;};
+function renderMural(){if(!selectedDate){$("selectedDayTitle").textContent="Selecione uma data";$("muralBox").innerHTML="<p>Nenhum dia selecionado.</p>";return}$("selectedDayTitle").textContent=new Date(selectedDate+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long",year:"numeric"});const dayEvents=events.filter(e=>e.date===selectedDate);if(!dayEvents.length){$("muralBox").innerHTML="<p>Nenhum evento nesta data.</p>";return}$("muralBox").innerHTML=dayEvents.map(e=>{const sched=schedules.filter(s=>scheduleEventId(s)===e.id||(scheduleEventDate(s)===e.date&&scheduleEventTitle(s)===e.title));return`<div class="item"><div class="item-title">${esc(e.title)}</div><div class="muted">${esc(e.time)} · ${esc(e.location||"")}</div>${sched.length?sched.map(s=>`<div style="margin-top:8px">${scheduleParts(s).map(p=>`<div class="muted">• <b>${esc(p.role)}</b>: ${esc(p.personName)}</div>`).join("")}<div class="actions"><button class="secondary" onclick="printSchedule('${s.id}')">🖨️ Imprimir</button><button class="secondary" onclick="shareSchedule('${s.id}')">📲 WhatsApp</button><button class="secondary" onclick="editScheduleById('${s.id}')">✏️ Alterar</button><button class="secondary" onclick="duplicateScheduleById('${s.id}')">📄 Duplicar</button><button class="danger" onclick="removeSchedule('${s.id}')">🗑️ Excluir</button></div></div>`).join(""):`<p>Nenhuma escala salva para este evento.</p>`}</div>`}).join("")}
+
+$("personPhoto").onchange=e=>{const file=e.target.files?.[0];if(!file)return;const r=new FileReader();r.onload=()=>{currentPhoto=String(r.result);$("photoPreview").innerHTML=`<img src="${currentPhoto}" class="avatar-lg">`};r.readAsDataURL(file)};
+$("personForm").onsubmit=async e=>{e.preventDefault();const data={name:$("personName").value.trim(),phone:$("personPhone").value.trim(),whatsapp:$("personWhatsapp").value.trim(),ministry:$("personMinistry").value.trim(),role:$("personRole").value.trim(),status:$("personStatus").value,photo:currentPhoto};if(!data.name)return msg("personMsg","Informe o nome.","error");const id=$("personId").value;if(id){await updateDoc(doc(db,paths.people,id),data);await logAudit("Pessoa alterada",data.name)}else{await addDoc(collection(db,paths.people),{...data,createdAt:serverTimestamp()});await logAudit("Pessoa criada",data.name)}clearPerson();msg("personMsg","Pessoa salva.")};
+$("clearPersonBtn").onclick=clearPerson;$("peopleSearch").oninput=renderPeople;function clearPerson(){["personId","personName","personPhone","personWhatsapp","personRole"].forEach(id=>$(id).value="");$("personPhoto").value="";$("photoPreview").innerHTML="";currentPhoto="";$("personMinistry").value="Louvor";$("personStatus").value="Ativo"}
+window.editPerson=p=>{$("personId").value=p.id;$("personName").value=p.name||"";$("personPhone").value=p.phone||"";$("personWhatsapp").value=p.whatsapp||"";$("personMinistry").value=p.ministry||"";$("personRole").value=p.role||"";$("personStatus").value=p.status||"Ativo";currentPhoto=p.photo||"";$("photoPreview").innerHTML=currentPhoto?`<img src="${currentPhoto}" class="avatar-lg">`:"";showPage("peoplePage");scrollTo(0,0)};
+window.removePerson=async id=>{if(confirm("Excluir pessoa?"))await deleteDoc(doc(db,paths.people,id));await logAudit("Pessoa excluída",id)};
+function renderPeople(){const term=$("peopleSearch")?.value?.toLowerCase()||"";let list=people;if(selectedDate){const eventIds=events.filter(e=>e.date===selectedDate).map(e=>e.id);const ids=new Set();schedules.filter(s=>eventIds.includes(scheduleEventId(s))||scheduleEventDate(s)===selectedDate).forEach(s=>scheduleParts(s).forEach(p=>ids.add(p.personId)));list=people.filter(p=>ids.has(p.id))}list=list.filter(p=>(p.name||"").toLowerCase().includes(term));$("peopleCount").textContent=selectedDate?`${list.length} escalado(s) na data`:`${list.length} pessoa(s)`;$("peopleList").innerHTML=list.map(p=>`<div class="item"><div class="topline"><div style="display:flex;gap:10px;align-items:center"><img class="avatar" src="${p.photo||''}" onerror="this.style.display='none'"><div><div class="item-title">${esc(p.name)}</div><div class="muted">${esc(p.ministry||"")} · ${esc(p.role||"Sem função")}</div><span class="chip ok">${esc(p.status||"Ativo")}</span>${p.whatsapp?`<span class="chip">WhatsApp: ${esc(p.whatsapp)}</span>`:""}</div></div><div class="actions"><button class="secondary" onclick='editPerson(${JSON.stringify(p)})'>Editar</button><button class="danger" onclick="removePerson('${p.id}')">Excluir</button></div></div></div>`).join("")||(selectedDate?"<p>Ninguém escalado nesta data.</p>":"<p>Nenhuma pessoa cadastrada.</p>")}
+
+$("eventForm").onsubmit=async e=>{e.preventDefault();
+const fixed=$("eventFixedType").value;
+const title=fixed==="Outros"?$("eventTitle").value.trim():fixed;
+const data={title,type:fixed,date:$("eventDate").value,time:$("eventTime").value,location:$("eventLocation").value.trim(),responsible:$("eventResponsible").value.trim()};
+if(!data.title)return msg("eventMsg","Informe o evento.","error");
+const id=$("eventId").value;
+if(id){await updateDoc(doc(db,paths.events,id),data);await logAudit("Evento alterado",data.title)}
+else{await addDoc(collection(db,paths.events),{...data,createdAt:serverTimestamp()});await logAudit("Evento criado",data.title)}
+clearEvent();msg("eventMsg","Evento salvo.")};
+$("clearEventBtn").onclick=clearEvent;$("eventDate").value=ymd(new Date());$("eventFixedType").onchange=()=>{$("eventOtherWrap").classList.toggle("hidden",$("eventFixedType").value!=="Outros")};function clearEvent(){$("eventId").value="";$("eventFixedType").value="Culto de Adoração";$("eventTitle").value="";$("eventOtherWrap").classList.add("hidden");$("eventDate").value=ymd(new Date());$("eventTime").value="19:00";$("eventLocation").value="Igreja Batista do Cordeiro";$("eventResponsible").value=""}
+window.editEvent=e=>{$("eventId").value=e.id;const fixedOptions=[...$("eventFixedType").options].map(o=>o.value);if(fixedOptions.includes(e.type||e.title)){$("eventFixedType").value=e.type||e.title;$("eventTitle").value=""}else{$("eventFixedType").value="Outros";$("eventTitle").value=e.title||""}$("eventOtherWrap").classList.toggle("hidden",$("eventFixedType").value!=="Outros");$("eventDate").value=e.date||"";$("eventTime").value=e.time||"";$("eventLocation").value=e.location||"";$("eventResponsible").value=e.responsible||"";showPage("eventsPage");scrollTo(0,0)};
+window.removeEvent=async id=>{if(confirm("Excluir evento?"))await deleteDoc(doc(db,paths.events,id));await logAudit("Evento excluído",id)};
+function renderEvents(){const list=selectedDate?events.filter(e=>e.date===selectedDate):events;$("eventsList").innerHTML=list.map(e=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(e.title)}</div><div class="muted">${esc(e.type||"")} · ${esc(e.date||"")} · ${esc(e.time||"")}</div><div class="muted">${esc(e.location||"")}${e.responsible?" · "+esc(e.responsible):""}</div></div><div class="actions"><button class="secondary" onclick='editEvent(${JSON.stringify(e)})'>Editar</button><button class="danger" onclick="removeEvent('${e.id}')">Excluir</button></div></div></div>`).join("")||(selectedDate?"<p>Nenhum evento nesta data.</p>":"<p>Nenhum evento cadastrado.</p>")}
+
+function fillPeopleSelects(){$("participantPerson").innerHTML=`<option value="">Selecione</option>`+people.map(p=>`<option value="${p.id}">${esc(p.name)} · ${esc(p.role||p.ministry||"")}</option>`).join("")}
+function fillEventsSelect(){$("scheduleEvent").innerHTML=`<option value="">Selecione</option>`+events.map(e=>`<option value="${e.id}">${esc(e.title)} · ${esc(e.date)} · ${esc(e.time)}</option>`).join("")}
+$("addParticipantBtn").onclick=()=>{const person=people.find(p=>p.id===$("participantPerson").value),role=$("participantRole").value;if(!person||!role)return msg("scheduleMsg","Selecione pessoa e função.","error");const item={id:editingParticipantId||uid(),personId:person.id,personName:person.name,ministry:person.ministry||"",role,notes:$("participantNotes").value.trim()};if(editingParticipantId)draftParticipants=draftParticipants.map(p=>p.id===editingParticipantId?item:p);else draftParticipants.push(item);editingParticipantId=null;$("participantPerson").value="";$("participantRole").value="Dirigente";$("participantNotes").value="";msg("scheduleMsg","");renderDraftParticipants()};
+window.editDraftParticipant=id=>{const item=draftParticipants.find(p=>p.id===id);if(!item)return;editingParticipantId=id;$("participantPerson").value=item.personId;$("participantRole").value=item.role;$("participantNotes").value=item.notes||"";scrollTo(0,0)};
+window.removeDraftParticipant=id=>{draftParticipants=draftParticipants.filter(p=>p.id!==id);renderDraftParticipants()};
+function renderDraftParticipants(){$("draftParticipants").innerHTML=draftParticipants.map(p=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(p.personName)}</div><span class="chip ok">${esc(p.role)}</span><span class="chip">${esc(p.ministry)}</span>${p.notes?`<div class="muted">${esc(p.notes)}</div>`:""}</div><div class="actions"><button class="secondary" onclick="editDraftParticipant('${p.id}')">Editar</button><button class="danger" onclick="removeDraftParticipant('${p.id}')">Remover</button></div></div></div>`).join("")||"<p>Nenhum participante adicionado.</p>"}
+$("saveScheduleBtn").onclick=async()=>{const event=events.find(e=>$("scheduleEvent").value===e.id);if(!event)return msg("scheduleMsg","Selecione o evento.","error");if(!draftParticipants.length)return msg("scheduleMsg","Adicione pelo menos uma pessoa.","error");const data={eventId:event.id,eventTitle:event.title,eventDate:event.date,eventTime:event.time,participants:draftParticipants,updatedBy:currentUser?.email||"",updatedAt:serverTimestamp()};const id=$("scheduleId").value;if(id){await updateDoc(doc(db,paths.schedules,id),data);await logAudit("Escala alterada",event.title)}else{await addDoc(collection(db,paths.schedules),{...data,createdAt:serverTimestamp()});await logAudit("Escala criada",event.title)}clearSchedule();msg("scheduleMsg","Escala salva com sucesso.")};
+$("clearScheduleBtn").onclick=clearSchedule;function clearSchedule(){$("scheduleId").value="";$("scheduleEvent").value="";draftParticipants=[];editingParticipantId=null;if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();$("participantPerson").value="";$("participantRole").value="Dirigente";$("participantNotes").value=""}
+window.editScheduleById=id=>{const s=schedules.find(x=>x.id===id);if(!s){alert("Escala não encontrada.");return}editSchedule(s)}
+window.duplicateScheduleById=id=>{const s=schedules.find(x=>x.id===id);if(!s){alert("Escala não encontrada.");return}duplicateSchedule(s)}
+function editSchedule(s){$("scheduleId").value=s.id;$("scheduleEvent").value=scheduleEventId(s);draftParticipants=scheduleParts(s).map(p=>({...p,id:p.id||uid()}));if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();showPage("schedulesPage");msg("scheduleMsg","Escala carregada para alteração. Salve para gravar na mesma escala.");scrollTo(0,0)}
+function duplicateSchedule(s){$("scheduleId").value="";$("scheduleEvent").value=scheduleEventId(s);draftParticipants=scheduleParts(s).map(p=>({...p,id:uid()}));if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();showPage("schedulesPage");msg("scheduleMsg","Escala duplicada. Escolha outro evento/data se desejar e salve como nova escala.");scrollTo(0,0)}
+window.removeSchedule=async id=>{if(confirm("Excluir esta escala completa?"))await deleteDoc(doc(db,paths.schedules,id));await logAudit("Escala excluída",id)};
+function renderSchedules(){$("schedulesList").innerHTML=schedules.map(s=>`<div class="item"><div class="topline"><div><div class="item-title">${esc(scheduleEventTitle(s))}</div><div class="muted">${esc(scheduleEventDate(s))} · ${esc(scheduleEventTime(s))} · ${scheduleParts(s).length} pessoa(s)</div></div><div class="actions"><button class="secondary" onclick="editScheduleById('${s.id}')">Alterar</button><button class="secondary" onclick="duplicateScheduleById('${s.id}')">Duplicar</button><button class="danger" onclick="removeSchedule('${s.id}')">Excluir</button></div></div><div style="margin-top:8px">${scheduleParts(s).map(p=>`<div class="muted">• ${esc(p.role)}: ${esc(p.personName)}</div>`).join("")}</div></div>`).join("")||"<p>Nenhuma escala salva.</p>";renderMural()}
+window.printSchedule=id=>{const s=schedules.find(x=>x.id===id);if(!s){alert("Escala não encontrada.");return}const e=events.find(x=>x.id===scheduleEventId(s));const parts=scheduleParts(s);$("printArea").innerHTML=`<div class="print-card"><h1>Igreja Batista do Cordeiro</h1><h2>${esc(scheduleEventTitle(s))}</h2><p>${esc(scheduleEventDate(s))} · ${esc(scheduleEventTime(s))} · ${esc(e?.location||"")}</p><hr><h2>Escala</h2>${parts.length?parts.map(p=>`<div class="print-line"><b>${esc(p.role)}</b>: ${esc(p.personName)}${p.notes?` <span class="muted">(${esc(p.notes)})</span>`:""}</div>`).join(""):"<p>Nenhum participante.</p>"}</div>`;setTimeout(()=>window.print(),100)}
+
+
+window.shareSchedule=id=>{
+  const s=schedules.find(x=>x.id===id);
+  if(!s){alert("Escala não encontrada.");return}
+  const e=events.find(x=>x.id===scheduleEventId(s));
+  const parts=scheduleParts(s);
+  const lines=[
+    "*Louvor Cordeiro*",
+    "",
+    `*${scheduleEventTitle(s)}*`,
+    `${scheduleEventDate(s)} · ${scheduleEventTime(s)}`,
+    e?.location?`${e.location}`:"",
+    "",
+    "*Escala:*",
+    ...parts.map(p=>`• ${p.role}: ${p.personName}${p.notes?` (${p.notes})`:""}`)
+  ].filter(Boolean);
+  window.open(`https://wa.me/?text=${encodeURIComponent(lines.join("\n"))}`,"_blank");
+};
+async function forceSync(){
+  msg("syncMsg","Sincronizando...");
+  try{
+    people=[];events=[];schedules=[];
+    cache.people={};cache.events={};cache.schedules={};
+    listeners=false;
+    startListeners();
+    setTimeout(()=>msg("syncMsg","Dados sincronizados com sucesso."),800);
+  }catch(e){msg("syncMsg","Erro ao sincronizar.","error")}
+}
+if($("syncBtn")) $("syncBtn").onclick=forceSync;
+if($("shareAppBtn")) $("shareAppBtn").onclick=()=>{
+  const text=`Louvor Cordeiro\nAcesse o app de escalas:\n${location.href}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank");
+};
+
+
+const PIE_COLORS=["#38bdf8","#a78bfa","#22c55e","#facc15","#fb7185","#60a5fa","#f97316","#34d399","#e879f9","#f472b6"];
+function filteredSchedulesForDash(){
+  const start=$("dashStart")?.value||"", end=$("dashEnd")?.value||"";
+  return schedules.filter(s=>{const d=scheduleEventDate(s)||""; if(start&&d<start)return false; if(end&&d>end)return false; return true;});
+}
+function makePie(pieId,legendId,data){
+  const pie=$(pieId),legend=$(legendId); if(!pie||!legend)return;
+  const entries=Object.entries(data).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const total=entries.reduce((s,[,v])=>s+v,0);
+  if(!total){pie.style.background="rgba(255,255,255,.08)";legend.innerHTML="<p>Sem dados suficientes.</p>";return}
+  let acc=0;
+  pie.style.background="conic-gradient("+entries.map(([label,value],i)=>{const start=acc/total*100;acc+=value;const end=acc/total*100;return `${PIE_COLORS[i%PIE_COLORS.length]} ${start}% ${end}%`;}).join(",")+")";
+  legend.innerHTML=entries.map(([label,value],i)=>{const pct=Math.round(value/total*100);return `<div><span><span class="sw" style="background:${PIE_COLORS[i%PIE_COLORS.length]}"></span>${esc(label)}</span><b>${value} · ${pct}%</b></div>`}).join("");
+}
+function renderDashboard(){
+  if(!$("pieRoles")) return;
+  const roleCount={}, personCount={}, eventTypeCount={}, lastServed={};
+  filteredSchedulesForDash().forEach(s=>{
+    const d=scheduleEventDate(s)||"";
+    const ev=events.find(e=>e.id===scheduleEventId(s));
+    const eventType=ev?.type||"Evento";
+    eventTypeCount[eventType]=(eventTypeCount[eventType]||0)+1;
+    scheduleParts(s).forEach(p=>{
+      roleCount[p.role||"Função"]=(roleCount[p.role||"Função"]||0)+1;
+      personCount[p.personName||"Pessoa"]=(personCount[p.personName||"Pessoa"]||0)+1;
+      if(p.personId&&(!lastServed[p.personId]||d>lastServed[p.personId]))lastServed[p.personId]=d;
+    });
+  });
+  makePie("pieRoles","legendRoles",roleCount); makePie("piePeople","legendPeople",personCount); makePie("pieEvents","legendEvents",eventTypeCount);
+  const missing=people.map(p=>({person:p,last:lastServed[p.id]||"Nunca"})).sort((a,b)=>{if(a.last==="Nunca"&&b.last!=="Nunca")return -1;if(a.last!=="Nunca"&&b.last==="Nunca")return 1;return String(a.last).localeCompare(String(b.last));});
+  $("dashMissing").innerHTML=missing.slice(0,12).map(x=>`<div class="item"><div class="item-title">${esc(x.person.name)}</div><div class="muted">Última escala: ${esc(x.last)}</div></div>`).join("")||"<p>Sem pessoas cadastradas.</p>";
+}
+
+function renderAudit(){$("auditList").innerHTML=audit.map(a=>`<div class="item"><div class="item-title">${esc(a.action)}</div><div class="muted">${esc(a.details||"")}</div><div class="muted">${esc(a.userEmail||"")} · ${esc(a.createdAtLocal||"")}</div></div>`).join("")||"<p>Nenhum registro ainda.</p>"}
+$("exportBtn").onclick=()=>{const data={people,events,schedules,exportedAt:new Date().toISOString(),appVersion:"1.6"};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="backup-escalas-ibc.json";a.click();URL.revokeObjectURL(a.href)};
+$("importFile").onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.people)for(const p of data.people)await addDoc(collection(db,paths.people),{...p,id:undefined,importedAt:serverTimestamp()});if(data.events)for(const ev of data.events)await addDoc(collection(db,paths.events),{...ev,id:undefined,importedAt:serverTimestamp()});if(data.schedules)for(const sc of data.schedules)await addDoc(collection(db,paths.schedules),{...sc,id:undefined,importedAt:serverTimestamp()});msg("backupMsg","Backup importado.")}catch(err){msg("backupMsg","Erro ao importar backup.","error")}}
+if($("dashApply")) $("dashApply").onclick=renderDashboard;
+if($("dashClear")) $("dashClear").onclick=()=>{$("dashStart").value="";$("dashEnd").value="";renderDashboard()};
+renderDraftParticipants();
+</script>
+</body>
+</html>
