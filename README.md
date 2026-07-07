@@ -1,6 +1,6 @@
-# Louvor Cordeiro v2.1
+# Louvor Cordeiro v2.2
 
-- Dashboard com 3 gráficos de pizza: função, integrante e tipo de evento.
-- Calendário com mês em destaque e inicial maiúscula.
-- Link público oficial: https://jaimeleite2012-sketch.github.io/louvorcordeiro/
-- Escalas seguem discretas apenas com nomes, sem foto.
+- Logo oficial do cordeiro aplicado.
+- Imagem de louvor aplicada como fundo transparente em todas as abas.
+- Cores originais azul-marinho/lilás preservadas.
+- Dashboard com 3 pizzas mantido.

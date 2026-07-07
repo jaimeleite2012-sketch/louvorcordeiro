@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Louvor Cordeiro v2.0</title>
+<title>Louvor Cordeiro v2.2</title>
 <meta name="theme-color" content="#07153e" />
 <link rel="manifest" href="./manifest.json" />
 <style>
 :root{
-  --bg:#030617;--card:rgba(10,22,61,.90);--card2:rgba(45,18,89,.72);
+  --bg:#030617;--card:rgba(10,22,61,.86);--card2:rgba(45,18,89,.68);
   --line:rgba(196,181,253,.26);--txt:#fff;--muted:#cbd5e1;--primary:#7c3aed;
   --ok:#22c55e;--danger:#ef4444;--cyan:#38bdf8;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;color:var(--txt);min-height:100vh;background:radial-gradient(circle at 12% 0%,rgba(37,99,235,.42),transparent 36%),radial-gradient(circle at 92% 0%,rgba(168,85,247,.38),transparent 36%),linear-gradient(180deg,#08042a 0%,#07153e 45%,#030617 100%)}
+body{margin:0;font-family:Arial,sans-serif;color:var(--txt);min-height:100vh;position:relative;background:radial-gradient(circle at 12% 0%,rgba(37,99,235,.42),transparent 36%),radial-gradient(circle at 92% 0%,rgba(168,85,247,.38),transparent 36%),linear-gradient(180deg,#08042a 0%,#07153e 45%,#030617 100%)}body::before{content:"";position:fixed;inset:0;background:url('./assets/fundo-louvor.png') center/cover no-repeat;opacity:.13;pointer-events:none;z-index:0}body>*{position:relative;z-index:1}
 .wrap{max-width:860px;margin:0 auto;padding:14px 14px 88px}
 header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:rgba(0,0,0,.25);font-size:24px;overflow:hidden}.brand h1{font-size:20px;margin:0;font-weight:900;line-height:1;letter-spacing:.2px}.brand small{color:#a5b4fc}
 .card{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--line);box-shadow:0 18px 45px rgba(0,0,0,.28);border-radius:22px;padding:16px;margin:12px 0}
-h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}#calendarTitle{font-size:28px;font-weight:900;text-transform:capitalize;color:#fff;text-align:center;margin:0}p{color:var(--muted);margin:6px 0}
+h2{margin:0 0 8px;font-size:24px}h3{margin:0 0 12px;font-size:18px}#calendarTitle{font-size:30px;font-weight:900;text-transform:capitalize;color:#fff;text-align:center;margin:0;text-shadow:0 2px 10px rgba(0,0,0,.45)}p{color:var(--muted);margin:6px 0}
 label{display:block;color:#dbeafe;font-size:13px;font-weight:700;margin:11px 0 5px}
 input,select,textarea{width:100%;border:1px solid rgba(196,181,253,.32);border-radius:14px;background:rgba(3,6,23,.55);color:#fff;padding:12px;font-size:15px;outline:none}
 textarea{min-height:80px}
@@ -59,10 +59,10 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 </section>
 
 <section id="appScreen" class="hidden">
-<header class="no-print"><div class="brand"><div class="logo"><img src="./assets/logo-cordeiro.webp" alt="Logo"></div><div><h1>Louvor Cordeiro</h1><small>Ministério de Louvor · Igreja Batista do Cordeiro</small></div></div><button class="secondary" id="logoutBtn">Sair</button></header>
+<header class="no-print"><div class="brand"><div class="logo"><img src="./assets/logo-cordeiro.webp" alt="Logo Louvor Cordeiro"></div><div><h1>Louvor Cordeiro</h1><small>Ministério de Louvor · Igreja Batista do Cordeiro</small></div></div><button class="secondary" id="logoutBtn">Sair</button></header>
 <main class="wrap">
 <section id="homePage" class="page">
-  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./assets/logo-cordeiro.webp" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 2.1</span></div>
+  <div class="card" style="text-align:center;background:linear-gradient(135deg,#07153e 0%,#1e1b4b 52%,#4c1d95 100%)"><img src="./assets/logo-cordeiro.webp" style="width:90px;height:90px;border-radius:18px;object-fit:cover;background:#000" onerror="this.style.display='none'"><h2 style="font-size:34px">Louvor Cordeiro</h2><p>Ministério de Louvor<br>Igreja Batista do Cordeiro</p><span class="chip ok">Versão 2.2</span></div>
   <div class="card">
     <div class="calendar-head"><button class="secondary" id="prevMonth">◀</button><h3 id="calendarTitle"></h3><button class="secondary" id="nextMonth">▶</button></div><div class="actions"><button class="secondary" id="clearSelectionBtn">Limpar seleção</button></div>
     <div class="calendar-grid" id="calendarGrid"></div>
@@ -113,7 +113,7 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 
 <section id="configPage" class="page hidden">
   <div class="card"><h2>Configurações</h2><p>Usuário conectado:</p><p id="configUser"></p><button class="danger" id="logoutBtn2">Sair</button></div>
-  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 2.1</p><p><b>Última atualização:</b> Dashboard com três gráficos de pizza, link oficial louvorcordeiro e calendário destacado.</p><p><b>Penúltima atualização:</b> Logo oficial aplicado, Dashboard adicionado e mês do calendário destacado.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
+  <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 2.2</p><p><b>Última atualização:</b> Logo oficial e fundo de louvor transparente aplicados em todas as telas.</p><p><b>Penúltima atualização:</b> Dashboard com três gráficos de pizza, link oficial louvorcordeiro e calendário destacado.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Auditoria</h3><div id="auditList" class="list"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
   <div class="card"><h3>Backup</h3><div class="actions"><button class="secondary" id="exportBtn">Exportar backup JSON</button><label class="secondary" style="padding:11px 13px;border-radius:14px;cursor:pointer"><input id="importFile" type="file" accept=".json" style="display:none">Importar backup JSON</label></div><div id="backupMsg"></div></div>
 </section>
 
