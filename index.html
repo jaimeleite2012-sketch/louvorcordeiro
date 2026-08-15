@@ -225,7 +225,7 @@ function startListeners(){if(listeners)return;listeners=true;[paths.people,legac
 function refreshPeople(){people=Object.values(cache.people).sort((a,b)=>(a.name||"").localeCompare(b.name||""));renderPeople();fillPeopleSelects();renderHome();renderDashboard()}
 function refreshEvents(){events=Object.values(cache.events).sort((a,b)=>`${a.date||""} ${a.time||""}`.localeCompare(`${b.date||""} ${b.time||""}`));renderEvents();fillEventsSelect();renderHome();renderDashboard()}
 function refreshSchedules(){schedules=Object.values(cache.schedules).sort((a,b)=>`${scheduleEventDate(a)} ${scheduleEventTime(a)}`.localeCompare(`${scheduleEventDate(b)} ${scheduleEventTime(b)}`));renderSchedules();renderHome();renderDashboard()}
-function refreshSongs(){songs=Object.values(cache.songs).sort((a,b)=>(a.title||"").localeCompare(b.title||"","pt-BR"));renderSongs();renderPresentationChoices()}
+function refreshSongs(){songs=Object.values(cache.songs).sort((a,b)=>(a.title||"").localeCompare(b.title||"","pt-BR"));}
 function refreshAudit(){audit=Object.values(cache.audit).sort((a,b)=>(b.createdAtLocal||"").localeCompare(a.createdAtLocal||"")).slice(0,20);renderAudit()}
 async function logAudit(action,details){try{await addDoc(collection(db,paths.audit),{action,details,userEmail:currentUser?.email||"",createdAt:serverTimestamp(),createdAtLocal:new Date().toLocaleString("pt-BR")})}catch(e){console.warn("audit",e)}}
 function scheduleParts(s){if(Array.isArray(s.participants)&&s.participants.length)return s.participants;if(s.personId||s.personName||s.role){const p=people.find(x=>x.id===s.personId);return[{id:s.id+"-p",personId:s.personId||"",personName:s.personName||p?.name||"Pessoa não encontrada",ministry:p?.ministry||"",role:s.role||"Função",notes:s.notes||""}]}return[]}
