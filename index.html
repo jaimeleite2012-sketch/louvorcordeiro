@@ -163,7 +163,6 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
   <div class="card"><h2>Configurações</h2><p>Usuário conectado:</p><p id="configUser"></p><button class="danger" id="logoutBtn2">Sair</button></div>
   <div class="card"><h3>Versão do aplicativo</h3><p><b>Versão atual:</b> 4.1</p><p><b>Última atualização:</b> Botões esconder/expandir, filtro de escalas pela data selecionada e exclusão imediata de eventos.</p><p><b>Penúltima atualização:</b> Capa de compartilhamento configurada para WhatsApp.</p></div><div class="card"><h3>Sincronização</h3><p>Use para forçar a atualização das informações em tempo real.</p><div class="actions"><button class="secondary" id="syncBtn">🔄 Sincronizar agora</button></div><div id="syncMsg"></div></div><div class="card"><h3>Compartilhar aplicativo</h3><div class="actions"><button class="secondary" id="shareAppBtn">📲 Compartilhar app via WhatsApp</button></div></div><div class="card"><h3>Como usar</h3><p>1. Cadastre pessoas. 2. Cadastre eventos. 3. Monte a escala. 4. No Mural, clique na data para ver e administrar a escala.</p></div>
   <div class="card"><h3>Backup</h3><div class="actions"><button class="secondary" id="exportBtn">Exportar backup JSON</button><label class="secondary" style="padding:11px 13px;border-radius:14px;cursor:pointer"><input id="importFile" type="file" accept=".json" style="display:none">Importar backup JSON</label></div><div id="backupMsg"></div></div>
-  <div class="card hidden" id="presentationTemplatesCard"><h3>Modelos oficiais de apresentação</h3><p>Cadastre uma única vez os modelos PPTX oficiais. Eles serão preservados pelo gerador, inclusive mídias e layout.</p><label>Tipo de modelo</label><select id="presentationTemplateType"><option value="adoracao">Culto de Louvor e Adoração</option><option value="oracao">Culto de Oração</option><option value="ebd">Escola Bíblica Dominical</option></select><label>Arquivo PPTX do modelo</label><input id="presentationTemplateFile" type="file" accept=".pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation"><div class="actions"><button class="secondary" id="uploadPresentationTemplateBtn" type="button">Enviar modelo oficial</button></div><div id="presentationTemplateMsg"></div><p class="muted">Apenas o administrador do Ministério de Louvor vê esta área.</p></div>
 </section>
 
 
@@ -184,28 +183,13 @@ nav button{border-radius:0;background:transparent;padding:10px 2px;font-size:12p
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import{getAuth,setPersistence,browserLocalPersistence,onAuthStateChanged,signInWithEmailAndPassword,sendPasswordResetEmail,signOut}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 import{getFirestore,collection,doc,addDoc,updateDoc,deleteDoc,onSnapshot,serverTimestamp,getDocs,query,where}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import{getStorage,ref,uploadBytesResumable,getDownloadURL}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
 
 const firebaseConfig={apiKey:"AIzaSyCIb6A3wbmhEMY_g1MpGmXax_7dSQH9thw",authDomain:"escalas-ibc.firebaseapp.com",projectId:"escalas-ibc",storageBucket:"escalas-ibc.firebasestorage.app",messagingSenderId:"799738915159",appId:"1:799738915159:web:3f656c00e8344954c73612",measurementId:"G-B5HHRZL42W"};
-const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),storage=getStorage(app);await setPersistence(auth,browserLocalPersistence);
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);await setPersistence(auth,browserLocalPersistence);
 const paths={people:"churches/ibc/people",events:"churches/ibc/events",schedules:"churches/ibc/schedules",audit:"churches/ibc/audit",scheduleFiles:"churches/ibc/scheduleFiles"};
 const legacyPaths={people:"people",events:"events",schedules:"schedules",schedulesV2:"churches/ibc/schedulesV2"};
 let people=[],events=[],schedules=[],audit=[],draftParticipants=[],draftFiles=[],editingParticipantId=null,currentMonth=new Date(),selectedDate=null,currentUser=null,currentPhoto="",showAllSchedules=false;
 const $=id=>document.getElementById(id),uid=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),msg=(id,text,type="success")=>$(id).innerHTML=text?`<div class="${type}">${text}</div>`:"";
-const presentationTemplateLabels={adoracao:"Culto de Louvor e Adoração",oracao:"Culto de Oração",ebd:"Escola Bíblica Dominical"};
-function isPresentationAdmin(){return String(currentUser?.email||"").trim().toLowerCase()==="jaimeleite2012@gmail.com"}
-function refreshPresentationTemplateAccess(){const card=$("presentationTemplatesCard");if(card)card.classList.toggle("hidden",!isPresentationAdmin())}
-function presentationTemplatePath(kind){return `churches/ibc/presentation-templates/${kind}.pptx`}
-$("uploadPresentationTemplateBtn").onclick=()=>{
-  const kind=$("presentationTemplateType").value,file=$("presentationTemplateFile").files?.[0];
-  if(!isPresentationAdmin())return msg("presentationTemplateMsg","Apenas o administrador pode cadastrar modelos.","error");
-  if(!file)return msg("presentationTemplateMsg","Selecione o arquivo PPTX oficial.","error");
-  if(!/\.pptx$/i.test(file.name))return msg("presentationTemplateMsg","Selecione um arquivo no formato PPTX.","error");
-  if(file.size>250*1024*1024)return msg("presentationTemplateMsg","O modelo excede o limite de 250 MB.","error");
-  const button=$("uploadPresentationTemplateBtn");button.disabled=true;
-  const task=uploadBytesResumable(ref(storage,presentationTemplatePath(kind)),file,{contentType:"application/vnd.openxmlformats-officedocument.presentationml.presentation",customMetadata:{originalName:file.name,uploadedBy:currentUser.email,templateType:kind}});
-  task.on("state_changed",snap=>{const pct=Math.round(snap.bytesTransferred/snap.totalBytes*100);msg("presentationTemplateMsg",`Enviando ${presentationTemplateLabels[kind]}: ${pct}%`);},err=>{console.error(err);msg("presentationTemplateMsg",`Não foi possível enviar o modelo: ${err?.message||"erro desconhecido"}.`,"error");button.disabled=false;},async()=>{try{await getDownloadURL(task.snapshot.ref);msg("presentationTemplateMsg",`${presentationTemplateLabels[kind]} cadastrado com sucesso.`,"success");$("presentationTemplateFile").value=""}catch(err){msg("presentationTemplateMsg","Modelo enviado, mas não foi possível confirmar a disponibilidade.","error")}finally{button.disabled=false}});
-};
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
 function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));renderPeople();renderEvents();}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.page));
@@ -229,7 +213,7 @@ function authMessage(e){return({"auth/invalid-credential":"E-mail ou senha invá
 $("loginForm").onsubmit=async e=>{e.preventDefault();$("loginBtn").disabled=true;try{await signInWithEmailAndPassword(auth,$("loginEmail").value.trim(),$("loginPassword").value)}catch(err){msg("loginMsg",authMessage(err),"error")}finally{$("loginBtn").disabled=false}};
 $("resetBtn").onclick=async()=>{try{await sendPasswordResetEmail(auth,$("loginEmail").value.trim());msg("loginMsg","E-mail enviado.")}catch(e){msg("loginMsg",authMessage(e),"error")}};
 $("logoutBtn").onclick=() => signOut(auth);$("logoutBtn2").onclick=() => signOut(auth);
-onAuthStateChanged(auth,u=>{currentUser=u;refreshPresentationTemplateAccess();if(u){$("loginScreen").classList.add("hidden");$("appScreen").classList.remove("hidden");$("configUser").textContent=u.email;startListeners()}else{$("loginScreen").classList.remove("hidden");$("appScreen").classList.add("hidden")}});
+onAuthStateChanged(auth,u=>{currentUser=u;if(u){$("loginScreen").classList.add("hidden");$("appScreen").classList.remove("hidden");$("configUser").textContent=u.email;startListeners()}else{$("loginScreen").classList.remove("hidden");$("appScreen").classList.add("hidden")}});
 
 const cache={people:{},events:{},schedules:{},audit:{}};let listeners=false;
 function upsert(type,docs){docs.forEach(x=>{if(x?.id)cache[type][x.id]=x})}
